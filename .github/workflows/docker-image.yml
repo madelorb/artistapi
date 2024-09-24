@@ -40,7 +40,6 @@ jobs:
       - name: Deploy to Azure Container Apps
         uses: azure/container-apps-deploy-action@v1
         with:
-          resource-group: <your-resource-group>
-          app-name: <your-app-name>
+          resource-group: rg-mho-brights-01
+          app-name: ca-mho-brights-01
           image: brightstraining24fall.azurecr.io/morby/artistapi:latest
-          environment: ca-mho-brights-01
