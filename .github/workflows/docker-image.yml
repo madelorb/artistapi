@@ -17,7 +17,7 @@ jobs:
       # Step 2: Build the Docker image
       - name: Build the Docker image
         run: |
-          docker build --file ./ArtistApi/Dockerfile --tag brightstraining24fall.azurecr.io/morby/artistapi:$(date +%s) .
+          docker build --file ./ArtistApi/Dockerfile --tag brightstraining24fall.azurecr.io/morby/artistapi .
 
       # Debugging Secrets Length
       - name: Debugging Secrets
@@ -40,4 +40,4 @@ jobs:
       # Step 4: Push the Docker image to ACR
       - name: Push the Docker image to ACR
         run: |
-          docker push brightstraining24fall.azurecr.io/morby/artistapi:$(date +%s)
+          docker push brightstraining24fall.azurecr.io/morby/artistapi
