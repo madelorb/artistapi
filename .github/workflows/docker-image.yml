@@ -42,4 +42,4 @@ jobs:
         with:
           resource-group: rg-mho-brights-01
           app-name: ca-mho-brights-01
-          image: brightstraining24fall.azurecr.io/morby/artistapi:latest
+          imageToDeploy: brightstraining24fall.azurecr.io/morby/artistapi:latest
