@@ -15,9 +15,8 @@ jobs:
       - uses: actions/checkout@v4
 
        # Step 2: Run Tests
-      - name: Run Tests
-        run: |
-          docker run --rm morby/artisapi:$(date +%s) dotnet test /path/to/your/test/project/ArtistApi.Test.csproj
+      - name: Run Integration Tests
+        run: dotnet test ./ArtistApi.Test/ArtistApi.Test.csproj # Adjust the path to your test project
 
       # Step 3: Build the Docker image
       - name: Build the Docker image
