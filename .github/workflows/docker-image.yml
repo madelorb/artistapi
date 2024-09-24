@@ -7,13 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    # check out the code
+    # Step 1: Checkout the code
     - uses: actions/checkout@v4
+
+    # Step 2: Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag morby/artisapi:$(date +%s)
+      run: docker build ./artistapi --file ./artistapi/Dockerfile --tag morby/artisapi:$(date +%s)
