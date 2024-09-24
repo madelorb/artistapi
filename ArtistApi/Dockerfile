@@ -16,6 +16,9 @@ RUN dotnet restore
 # Copy the rest of the application files
 COPY ./ArtistApi/. .
 
+# Restore the application and clear NuGet cache
+RUN dotnet nuget locals all --clear && dotnet restore
+
 # Build the application
 RUN dotnet build --configuration Release --no-restore
 
