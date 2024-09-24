@@ -25,7 +25,7 @@ builder.Services.AddHttpClient<ISpotifyClient, SpotifyClient>(client =>
     // if (spotifyApiToken != null) client.DefaultRequestHeaders.Authorization =  new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", spotifyApiToken);
     client.DefaultRequestHeaders.Add("Authorization", $"Bearer {spotifyApiToken}");
 });
-string? hisSecret = Environment.GetEnvironmentVariable("his-secret");
+string? hisSecret = Environment.GetEnvironmentVariable("id-sp-deployment-01-credentials");
 logger.LogInformation($"Retrieved Spotify API token: {hisSecret ?? "Token not found"}");
 var app = builder.Build();
 
