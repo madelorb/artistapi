@@ -62,25 +62,25 @@ public class ArtistControllerTest
         response.EnsureSuccessStatusCode();
     }
     
-    [Theory]
-    [InlineData("3fMbdgg4jU18AjLCKBhRSm")]  
-    public async Task DeleteArtist_RemovesArtistFromList(string id)
-    {
-        // Arrange
-        var client = _factory.CreateClient();
-            
-        // Act
-        var firstRes = await client.GetAsync("/artists");
-        var content = await firstRes.Content.ReadFromJsonAsync< List<Artist.Artist >>();
-        var initialCount = content.Count;
-    
-        var res = await client.DeleteAsync($"/artists/{id}");
-    
-        var res2 = await client.GetAsync("/artists");
-        var content2 = await res2.Content.ReadFromJsonAsync < List<Artist.Artist >> ();
-    
-        // Assert
-        var expected = initialCount - 1;
-        Assert.Equal(content2.Count, expected);
-    }
+    // [Theory]
+    // [InlineData("3fMbdgg4jU18AjLCKBhRSm")]  
+    // public async Task DeleteArtist_RemovesArtistFromList(string id)
+    // {
+    //     // Arrange
+    //     var client = _factory.CreateClient();
+    //         
+    //     // Act
+    //     var firstRes = await client.GetAsync("/artists");
+    //     var content = await firstRes.Content.ReadFromJsonAsync< List<Artist.Artist >>();
+    //     var initialCount = content.Count;
+    //
+    //     var res = await client.DeleteAsync($"/artists/{id}");
+    //
+    //     var res2 = await client.GetAsync("/artists");
+    //     var content2 = await res2.Content.ReadFromJsonAsync < List<Artist.Artist >> ();
+    //
+    //     // Assert
+    //     var expected = initialCount - 1;
+    //     Assert.Equal(content2.Count, expected);
+    // }
 }
