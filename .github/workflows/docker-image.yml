@@ -16,4 +16,4 @@ jobs:
 
     # Step 2: Build the Docker image
     - name: Build the Docker image
-      run: docker build ./artistapi --file Dockerfile --tag morby/artisapi:$(date +%s)
+      run: docker build --file ./ArtistApi/Dockerfile --tag morby/artisapi:$(date +%s) .
