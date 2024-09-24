@@ -14,7 +14,12 @@ jobs:
       # Step 1: Checkout the code
       - uses: actions/checkout@v4
 
-      # Step 2: Build the Docker image
+       # Step 2: Run Tests
+      - name: Run Tests
+        run: |
+          docker run --rm morby/artisapi:$(date +%s) dotnet test /path/to/your/test/project/ArtistApi.Test.csproj
+
+      # Step 3: Build the Docker image
       - name: Build the Docker image
         run: |
           docker build --file ./ArtistApi/Dockerfile --tag brightstraining24fall.azurecr.io/morby/artistapi .
@@ -28,16 +33,14 @@ jobs:
           ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
           ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
 
-
-      # Step 3: Login to ACR
-     # Step 3: Login to ACR
+       # Step 4: Login to ACR
       # Log in to ACR
       - name: Log in to ACR
         run: |
           echo "${{ secrets.ACR_PASSWORD }}" | docker login brightstraining24fall.azurecr.io --username "${{ secrets.ACR_USERNAME }}" --password-stdin
 
 
-      # Step 4: Push the Docker image to ACR
+      # Step 5: Push the Docker image to ACR
       - name: Push the Docker image to ACR
         run: |
           docker push brightstraining24fall.azurecr.io/morby/artistapi
